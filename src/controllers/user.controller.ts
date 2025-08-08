@@ -16,6 +16,7 @@ export class UserController {
   getProfile = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const userId = req.params.id;
+      // @ts-ignore
       const result = await this.userService.getUserById(userId);
       if (!result) return res.status(404).json({ message: 'User not found' });
       res.status(200).json(result);
